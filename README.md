@@ -1,5 +1,5 @@
 # LofiQuest
-A game about the famous girl Lofi, whose cat escaped
+A game about the famous girl Lofi, whose cat is ran awey
 
 Игра, созданная в рамках университетской курсовой работы.
 Посвещена популярному персонажу, у которого в один из дней убежал кот, который прыгнул за бабочкой в окно.
