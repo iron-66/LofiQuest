@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Media;
+
 namespace Game_quest
 {
     partial class Form1
@@ -247,6 +250,7 @@ namespace Game_quest
             this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Lofi Quest";
@@ -268,7 +272,6 @@ namespace Game_quest
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

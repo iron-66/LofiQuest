@@ -1,11 +1,7 @@
 ﻿using Game_quest.Entities;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game_quest.Controllers
 {
@@ -95,7 +91,7 @@ namespace Game_quest.Controllers
                     {
                         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-                        { 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
+                        { 1, 1, 1, 0, 0, 1, 1, 0, 0, 0 },
                         { 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
                         { 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
                         { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 },
@@ -106,7 +102,18 @@ namespace Game_quest.Controllers
                     {
                         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                        { 1, 1, 1, 0, 0, 1, 1, 0, 0, 0 },
+                        { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
                         { 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
+                        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 },
+                    };
+
+                case ("Levels\\GroundFinal.png"):
+                    return new int[,]
+                    {
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                        { 1, 1, 1, 0, 0, 1, 1, 0, 0, 0 },
                         { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
                         { 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
                         { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 },

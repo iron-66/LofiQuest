@@ -4,13 +4,8 @@ using Game_quest.HeroesCFG;
 using Game_quest.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Game_quest
@@ -22,7 +17,7 @@ namespace Game_quest
     {       
         public Image lofiSheet;
         public Hero player;
-        public static PictureBox Scene;
+        System.Media.SoundPlayer music = new System.Media.SoundPlayer(Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "MainTheme.wav"));
 
         public Form1()
         {
@@ -30,6 +25,7 @@ namespace Game_quest
           
             timer1.Interval = 50;
             timer1.Tick += new EventHandler(Update);
+            music.PlayLooping();
 
             MouseClick += CabelsGame.Click;
             MouseClick += LeverGame.Click;
@@ -47,14 +43,12 @@ namespace Game_quest
                 pictureBox4, pictureBox5, pictureBox6,
                 pictureBox7, pictureBox8, pictureBox9,
             };
-
-            Scene = pictureBox15;
-
             var levers = new List<PictureBox> { pictureBox11, pictureBox12, pictureBox13, pictureBox14 };            
 
             CabelsGame.Init(cabelsGrid, player);
             LeverGame.Init(levers, player);
-            DialogController.Init(pictureBox16, player);
+            DialogController.Init(pictureBox15, pictureBox16, player);
+            DialogController.ShowScene("Start");
             Worker.Init(pictureBox10);
         }
 
@@ -82,6 +76,7 @@ namespace Game_quest
                     player.dirX = 0;
                     break;
                 case Keys.E:
+                    HeroParams.delay = 0;
                     Hero.canInteract = false;
                     break;
             }
@@ -134,7 +129,7 @@ namespace Game_quest
                     break;
                 case Keys.E:
                     Hero.canInteract = true;
-                    HeroParams.firstActionDone = true;
+                    DialogController.FirstActionDone = true;
                     break;
             }
             player.isMoving = true;
@@ -192,15 +187,6 @@ namespace Game_quest
             PhysicsController.g = g;
             MapController.GetCollision();
             player.PlayAnimation(g);
-        }
-
-        /// <summary>
-        /// Отображение кат-сцен (начало, конец игры и некорорые элементы взаимодействия)
-        /// </summary>
-        public static void ShowScene()
-        {
-            Scene.ImageLocation = (Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "Levels\\End.png"));
-            Scene.Visible = true;
         }
     }
 }

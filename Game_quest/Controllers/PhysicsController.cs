@@ -2,11 +2,7 @@
 using Game_quest.HeroesCFG;
 using Game_quest.Models;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game_quest.Controllers
 {
@@ -98,6 +94,8 @@ namespace Game_quest.Controllers
             if ((MapController.currentLVL == "Levels\\Room.png") && !HeroParams.gateIsOpen && (entity.posX > 1010))
             {
                 MapController.Init("Levels\\Yard.png");
+                DialogController.FirstActionDone = true;
+                DialogController.FirstTimeOnLevel = true;
                 entity.posX = 300;
                 entity.posY = 20;
             }
@@ -118,6 +116,7 @@ namespace Game_quest.Controllers
 
             if ((MapController.currentLVL == "Levels\\Yard.png") && (!HeroParams.havePlank) && (entity.posX < 100) && (entity.posY > 100))
             {
+                DialogController.FirstTimeOnLevel = true;
                 MapController.Init("Levels\\GroundWorks.png");
                 entity.posX = 1000;
                 entity.posY = 410;
@@ -125,7 +124,14 @@ namespace Game_quest.Controllers
 
             if ((MapController.currentLVL == "Levels\\Yard.png" || MapController.currentLVL == "Levels\\YardGate.png") && (HeroParams.havePlank) && (entity.posX < 100) && (entity.posY > 100))
             {
+                if (!HeroParams.haveKey)
+                    DialogController.FirstTimeOnLevel = true;
+                else DialogController.FirstTimeOnLevel = false;
                 MapController.Init("Levels\\GroundBridge.png");
+
+                if(HeroParams.generatorDisabled)
+                    MapController.Init("Levels\\GroundFinal.png");
+
                 entity.posX = 1000;
                 entity.posY = 410;
             }
@@ -145,6 +151,7 @@ namespace Game_quest.Controllers
                 MapController.mapHeight = 12;
                 MapController.mapWidth = 20;
                 MapController.cellSize = 60;
+                DialogController.FirstTimeOnLevel = false;
                 MapController.Init("Levels\\Maze.png");
                 entity.posX = 70;
                 entity.posY = 40;
@@ -153,6 +160,7 @@ namespace Game_quest.Controllers
             if ((MapController.currentLVL == "Levels\\MazePlank.png") && (entity.posY > 400) && (entity.posX > 900))
             {
                 HeroParams.havePlank = true;
+                DialogController.FirstTimeOnLevel = true;
                 MapController.Init("Levels\\Maze.png");
             }
 
@@ -161,23 +169,25 @@ namespace Game_quest.Controllers
                 MapController.mapHeight = 6;
                 MapController.mapWidth = 10;
                 MapController.cellSize = 120;
-                MapController.Init("Levels\\Yard.png");
+                if (!HeroParams.gateIsOpen)
+                    MapController.Init("Levels\\Yard.png");
+                else MapController.Init("Levels\\YardGate.png");
                 entity.posX = 570;
                 entity.posY = 340;
             }
 
-            if ((MapController.currentLVL == "Levels\\GroundBridge.png") && (entity.posX < 300))
+            if ((MapController.currentLVL == "Levels\\GroundBridge.png") && (entity.posX < 400))
             {
-                HeroParams.haveKey = true;
-                if (HeroParams.visitYard)
+                if (HeroParams.visitTree)
                     HeroParams.canVisitStock = true;
                 if (HeroParams.generatorDisabled)
-                    Form1.ShowScene();
+                    DialogController.ShowScene("End");
             }
 
             if ((MapController.currentLVL == "Levels\\GroundWorks.png" || MapController.currentLVL == "Levels\\GroundBridge.png") && !HeroParams.gateIsOpen && (entity.posX > 1000))
             {
                 Worker.Deactivate();
+                DialogController.FirstTimeOnLevel = true;
                 MapController.Init("Levels\\Yard.png");
                 entity.posX = 100;
                 entity.posY = 200;
@@ -194,8 +204,8 @@ namespace Game_quest.Controllers
             if ((MapController.currentLVL == "Levels\\YardGate.png") && HeroParams.gateIsOpen && (entity.posX > 480) && (entity.posX < 600) && (entity.posY < 30))
             {
                 MapController.Init("Levels\\Tree.png");
-                HeroParams.visitYard = true;
-                entity.posX = 130;
+                HeroParams.visitTree = true;
+                entity.posX = 190;
                 entity.posY = 410;
             }
 
@@ -208,6 +218,7 @@ namespace Game_quest.Controllers
 
             if ((MapController.currentLVL == "Levels\\Yard.png") && HeroParams.haveKey && (entity.posX > 900) && (entity.posY < 80))
             {
+                DialogController.FirstTimeOnLevel = true;
                 MapController.Init("Levels\\SecurityRoom.png");
                 entity.posX = 350;
                 entity.posY = 400;
@@ -236,7 +247,7 @@ namespace Game_quest.Controllers
                 entity.posY = 120;
             }
 
-            if ((MapController.currentLVL == "Levels\\SecurityRoom.png") && (entity.posY < 230) && (Hero.canInteract))
+            if ((MapController.currentLVL == "Levels\\SecurityRoom.png") && (entity.posX < 250) && (entity.posY < 230) && (Hero.canInteract))
             {
                 MapController.Init("Levels\\SecurityElectro.png");
             }
