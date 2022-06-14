@@ -1,10 +1,10 @@
-﻿using Game_quest.Controllers;
-using Game_quest.Models;
+﻿using LofiQuest.Controllers;
+using LofiQuest.Models;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Game_quest.HeroesCFG
+namespace LofiQuest.HeroesCFG
 {
     /// <summary>
     /// Функциональная составляющая персонажа - строителя

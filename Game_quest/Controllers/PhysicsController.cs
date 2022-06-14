@@ -1,10 +1,10 @@
-﻿using Game_quest.Entities;
-using Game_quest.HeroesCFG;
-using Game_quest.Models;
+﻿using LofiQuest.Entities;
+using LofiQuest.HeroesCFG;
+using LofiQuest.Models;
 using System;
 using System.Drawing;
 
-namespace Game_quest.Controllers
+namespace LofiQuest.Controllers
 {
     /// <summary>
     /// Обработка "физики" программы

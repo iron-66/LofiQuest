@@ -1,9 +1,9 @@
-﻿using Game_quest.Entities;
+﻿using LofiQuest.Entities;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
-namespace Game_quest.Controllers
+namespace LofiQuest.Controllers
 {
     /// <summary>
     /// Класс, отвечающий за отрисовку карты и обработку карты нормалей
@@ -34,7 +34,7 @@ namespace Game_quest.Controllers
         /// Метод, содержащий карты расположений объектов
         /// </summary>
         /// <param name="lvl"> Название уровня </param>
-        /// <returns> Двумерный массив - карта нормалей </returns>
+        /// <returns> Двумерный массив - карта объектов </returns>
         public static int[,] GetObjectsMap(string lvl)
         {
             map = new int[mapHeight, mapWidth];

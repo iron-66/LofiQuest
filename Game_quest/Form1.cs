@@ -1,14 +1,14 @@
-﻿using Game_quest.Controllers;
-using Game_quest.Entities;
-using Game_quest.HeroesCFG;
-using Game_quest.Models;
+﻿using LofiQuest.Controllers;
+using LofiQuest.Entities;
+using LofiQuest.HeroesCFG;
+using LofiQuest.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Game_quest
+namespace LofiQuest
 {
     /// <summary>
     /// Главный класс, содержащий параметры формы
@@ -16,15 +16,20 @@ namespace Game_quest
     public partial class Form1 : Form
     {       
         public Image lofiSheet;
-        public Hero player;
-        System.Media.SoundPlayer music = new System.Media.SoundPlayer(Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "MainTheme.wav"));
+        public Hero player;      
 
+        /// <summary>
+        /// Инициализация компонентов при запуске программы
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
           
             timer1.Interval = 50;
             timer1.Tick += new EventHandler(Update);
+
+            System.Media.SoundPlayer music = new System.Media.SoundPlayer(
+                Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "MainTheme.wav"));
             music.PlayLooping();
 
             MouseClick += CabelsGame.Click;
@@ -136,7 +141,7 @@ namespace Game_quest
         }
 
         /// <summary>
-        /// Инициализация начальных объетов;
+        /// Инициализация начальных объектов;
         /// Установка размеров формы
         /// </summary>
         /// <param name="lvl"> Название уровня </param>

@@ -1,7 +1,7 @@
-﻿using Game_quest.Controllers;
+﻿using LofiQuest.Controllers;
 using System.Drawing;
 
-namespace Game_quest.Entities
+namespace LofiQuest.Entities
 {
     /// <summary>
     /// Функциональная составляющая главного героя

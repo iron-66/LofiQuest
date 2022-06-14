@@ -1,4 +1,4 @@
-﻿namespace Game_quest.Models
+﻿namespace LofiQuest.Models
 {
     /// <summary>
     /// Параметры персонажа

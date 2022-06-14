@@ -1,11 +1,11 @@
-﻿using Game_quest.Controllers;
-using Game_quest.Entities;
-using Game_quest.Models;
+﻿using LofiQuest.Controllers;
+using LofiQuest.Entities;
+using LofiQuest.Models;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Game_quest
+namespace LofiQuest
 {
     /// <summary>
     /// Класс, обеспечивающий работоспособность появляющегося снизу текста и кат-сцен

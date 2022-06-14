@@ -2,7 +2,7 @@
 using System;
 using System.Media;
 
-namespace Game_quest
+namespace LofiQuest
 {
     partial class Form1
     {

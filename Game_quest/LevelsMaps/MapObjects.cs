@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game_quest.Entities
+namespace LofiQuest.Entities
 {
     /// <summary>
     /// Параметры объектов, расположенных на карте
